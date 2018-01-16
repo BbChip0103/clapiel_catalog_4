@@ -38,6 +38,7 @@ transition: all 0.4s ease 0s;
 margin-left: -40vw;
 left: 0;
 width: 40vw;
+/* height:100vh; */
 background: #000;
 position: fixed;
 height: 100%;
@@ -55,6 +56,7 @@ left: 40vw;
 #wrapper.active #sidebar-wrapper {
   left:40vw;
   width: 40vw;
+  height: 100%;
   transition: all 0.4s ease 0s;
 }
 
@@ -64,8 +66,6 @@ width: 100%;
 
 .img_Basic {
 width:100%;
-/* max-width: 100%;
-max-height: 100%; */
 }
 
 .sidebar-nav {

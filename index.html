@@ -9,55 +9,54 @@
     <!-- Custom styles for this template -->
     <link href="css/custom_style.css" rel="stylesheet">
 
-    <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 <div id="wrapper">
-
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <nav id="spy">
                 <ul class="sidebar-nav nav">
                     <li>
                         <a href="#anch1" data-scroll>
-                            <span class="fa fa-anchor solo">Anchor 1</span>
+                            <span class="fa fa-anchor solo">Page 1</span>
                         </a>
                     </li>
                     <li>
                         <a href="#anch2" data-scroll>
-                            <span class="fa fa-anchor solo">Anchor 2</span>
+                            <span class="fa fa-anchor solo">Page 2</span>
                         </a>
                     </li>
                     <li>
                         <a href="#anch3" data-scroll>
-                            <span class="fa fa-anchor solo">Anchor 3</span>
+                            <span class="fa fa-anchor solo">Page 3</span>
                         </a>
                     </li>
                     <li>
                         <a href="#anch4" data-scroll>
-                            <span class="fa fa-anchor solo">Anchor 4</span>
+                            <span class="fa fa-anchor solo">Page 4</span>
                         </a>
                     </li>
                     <li>
                         <a href="#anch5" data-scroll>
-                            <span class="fa fa-anchor solo">Anchor 5</span>
+                            <span class="fa fa-anchor solo">Page 5</span>
                         </a>
                     </li>
                     <li>
                         <a href="#anch6" data-scroll>
-                            <span class="fa fa-anchor solo">Anchor 6</span>
+                            <span class="fa fa-anchor solo">Page 6</span>
                         </a>
                     </li>
                     <li>
                         <a href="#anch7" data-scroll>
-                            <span class="fa fa-anchor solo">Anchor 7</span>
+                            <span class="fa fa-anchor solo">Page 7</span>
                         </a>
                     </li>
                     <li>
                         <a href="#anch8" data-scroll>
-                            <span class="fa fa-anchor solo">Anchor 8</span>
+                            <span class="fa fa-anchor solo">Page 8</span>
                         </a>
                     </li>
                 </ul>
@@ -117,52 +116,48 @@
                   <img class="img_Basic " src="./images/0008.jpg" alt=""></img>
                   </legend>
               </div>
-
               <div class="navbar navbar-default navbar-static-bottom">
-                  <p class="navbar-text pull-left">Clapiel Catalog 4  </p>
+                  <p class="navbar-text pull-left">Clapiel Catalog 4</p>
               </div>
           </div>
         </div>
-
     </div>
 <script type="text/javascript">
-
 	/*Menu-toggle*/
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("active");
-    });
+  $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("active");
+  });
 
-    /*Scroll Spy*/
-    $('body').scrollspy({ target: '#spy', offset:80});
+  /*Scroll Spy*/
+  $('body').scrollspy({ target: '#spy', offset:10 });
 
-    /*Smooth link animation*/
-    $('a[href*=#]:not([href=#])').click(function() {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+  /*Smooth link animation*/
+  $('a[href*=\\#]:not([href=\\#])').click(function() {
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
 
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if (target.length) {
-                $('html,body').animate({
-                    scrollTop: target.offset().top
-                }, 1000);
-                return false;
-            }
-        }
-    });
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          if (target.length) {
+            $('html,body').animate({
+                scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+      }
+  });
 </script>
 
 <script>
-// When the user scrolls down 20px from the top of the document, slide down the navbar
-window.onscroll = function() {scrollFunction()};
+  window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("navbar").style.top = "0";
-    } else {
-        document.getElementById("navbar").style.top = "-10vh";
-    }
-}
+  function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("navbar").style.top = "0";
+      } else {
+          document.getElementById("navbar").style.top = "-10vh";
+      }
+  }
 </script>
 </body>
 </html>

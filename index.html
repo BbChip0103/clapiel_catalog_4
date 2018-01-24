@@ -15,56 +15,60 @@
 
 <body>
 <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <nav id="spy">
-                <ul class="sidebar-nav nav">
-                    <li>
-                        <a href="#anch1" data-scroll>
-                            <span class="fa fa-anchor solo">Page 1</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#anch2" data-scroll>
-                            <span class="fa fa-anchor solo">Page 2</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#anch3" data-scroll>
-                            <span class="fa fa-anchor solo">Page 3</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#anch4" data-scroll>
-                            <span class="fa fa-anchor solo">Page 4</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#anch5" data-scroll>
-                            <span class="fa fa-anchor solo">Page 5</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#anch6" data-scroll>
-                            <span class="fa fa-anchor solo">Page 6</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#anch7" data-scroll>
-                            <span class="fa fa-anchor solo">Page 7</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#anch8" data-scroll>
-                            <span class="fa fa-anchor solo">Page 8</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+      <nav id="spy">
+          <ul class="sidebar-nav nav">
+              <li>
+                  <a href="#anch1" data-scroll>
+                      <span class="fa fa-anchor solo">Page 1</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#anch2" data-scroll>
+                      <span class="fa fa-anchor solo">Page 2</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#anch3" data-scroll>
+                      <span class="fa fa-anchor solo">Page 3</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#anch4" data-scroll>
+                      <span class="fa fa-anchor solo">Page 4</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#anch5" data-scroll>
+                      <span class="fa fa-anchor solo">Page 5</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#anch6" data-scroll>
+                      <span class="fa fa-anchor solo">Page 6</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#anch7" data-scroll>
+                      <span class="fa fa-anchor solo">Page 7</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#anch8" data-scroll>
+                      <span class="fa fa-anchor solo">Page 8</span>
+                  </a>
+              </li>
+          </ul>
+      </nav>
+  </div>
 
         <!-- Page content -->
         <div id="page-content-wrapper">
+          <!-- mask -->
+          <div id="mask"></div>
+
           <div id="navbar">
             <div class="content-header">
                 <h1 id="home">
@@ -127,10 +131,17 @@
   $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("active");
+      $("#mask").fadeToggle();
+  });
+
+  $('#mask').click(function (e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("active");
+    $("#mask").fadeToggle();
   });
 
   /*Scroll Spy*/
-  // $('body').scrollspy({ target: '#spy', offset:80 });
+  $('body').scrollspy({ target: '#spy', offset:80 });
 
   /*Smooth link animation*/
   $('a[href*=\\#]:not([href=\\#])').click(function() {
@@ -140,7 +151,7 @@
           target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
           if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top
+                scrollTop: target.offset().top - 50
             }, 1000);
             return false;
           }
@@ -149,14 +160,38 @@
 </script>
 
 <script>
-  window.onscroll = function() {scrollFunction()};
+  // Hide Header on on scroll down
+  var didScroll;
+  var lastScrollTop = 0;
+  var delta = 5;
+  var navbarHeight = $('#navbar').outerHeight();
 
-  function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  $(window).scroll(function(event){
+      didScroll = true;
+  });
+
+  setInterval(function() {
+      if (didScroll) {
+          hasScrolled();
+          didScroll = false;
+      }
+  }, 250);
+
+  function hasScrolled() {
+      var st = $(this).scrollTop();
+      // Make sure they scroll more than delta
+      if(Math.abs(lastScrollTop - st) <= delta)
+          return;
+      if (st > lastScrollTop && st > navbarHeight){
+          // Scroll Down
           document.getElementById("navbar").style.top = "0";
       } else {
-          document.getElementById("navbar").style.top = "-10vh";
+          // Scroll Up
+          if(st + $(window).height() < $(document).height()) {
+            document.getElementById("navbar").style.top = "-10vh";
+          }
       }
+      lastScrollTop = st;
   }
 </script>
 </body>

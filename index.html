@@ -16,47 +16,50 @@
 <body>
 <div id="wrapper">
 
+  <!-- mask -->
+  <div id="mask"></div>
+
   <!-- Sidebar -->
   <div id="sidebar-wrapper">
       <nav id="spy">
           <ul class="sidebar-nav nav">
               <li>
-                  <a href="#anch1" data-scroll>
+                  <a href="#anch1">
                       <span class="fa fa-anchor solo">Page 1</span>
                   </a>
               </li>
               <li>
-                  <a href="#anch2" data-scroll>
+                  <a href="#anch2">
                       <span class="fa fa-anchor solo">Page 2</span>
                   </a>
               </li>
               <li>
-                  <a href="#anch3" data-scroll>
+                  <a href="#anch3">
                       <span class="fa fa-anchor solo">Page 3</span>
                   </a>
               </li>
               <li>
-                  <a href="#anch4" data-scroll>
+                  <a href="#anch4">
                       <span class="fa fa-anchor solo">Page 4</span>
                   </a>
               </li>
               <li>
-                  <a href="#anch5" data-scroll>
+                  <a href="#anch5">
                       <span class="fa fa-anchor solo">Page 5</span>
                   </a>
               </li>
               <li>
-                  <a href="#anch6" data-scroll>
+                  <a href="#anch6">
                       <span class="fa fa-anchor solo">Page 6</span>
                   </a>
               </li>
               <li>
-                  <a href="#anch7" data-scroll>
+                  <a href="#anch7">
                       <span class="fa fa-anchor solo">Page 7</span>
                   </a>
               </li>
               <li>
-                  <a href="#anch8" data-scroll>
+                  <a href="#anch8">
                       <span class="fa fa-anchor solo">Page 8</span>
                   </a>
               </li>
@@ -66,8 +69,6 @@
 
     <!-- Page content -->
     <div id="page-content-wrapper">
-      <!-- mask -->
-      <div id="mask"></div>
 
       <div id="navbar">
         <div class="content-header">
@@ -81,28 +82,28 @@
 
       <div class="page-content inset" data-spy="scroll" data-target="#spy">
         <div class="col-md-12 well" id="anch1">
-            <img class="img_Basic" src="./images/0001.jpg" alt=""></img>
+            <img class="img_Basic" src="./images/0001.jpg" alt="">
         </div>
         <div class="col-md-12 well" id="anch2">
-            <img class="img_Basic" src="./images/0002.jpg" alt=""></img>
+            <img class="img_Basic" src="./images/0002.jpg" alt="">
           </div>
         <div class="col-md-12 well" id="anch3">
-            <img class="img_Basic" src="./images/0003.jpg" alt=""></img>
+            <img class="img_Basic" src="./images/0003.jpg" alt="">
             </div>
         <div class="col-md-12 well" id="anch4">
-            <img class="img_Basic" src="./images/0004.jpg" alt=""></img>
+            <img class="img_Basic" src="./images/0004.jpg" alt="">
             </div>
         <div class="col-md-12 well" id="anch5">
-            <img class="img_Basic" src="./images/0005.jpg" alt=""></img>
+            <img class="img_Basic" src="./images/0005.jpg" alt="">
         </div>
         <div class="col-md-12 well" id="anch6">
-            <img class="img_Basic" src="./images/0006.jpg" alt=""></img>
+            <img class="img_Basic" src="./images/0006.jpg" alt="">
         </div>
         <div class="col-md-12 well" id="anch7">
-            <img class="img_Basic" src="./images/0007.jpg" alt=""></img>
+            <img class="img_Basic" src="./images/0007.jpg" alt="">
         </div>
         <div class="col-md-12 well" id="anch8">
-            <img class="img_Basic" src="./images/0008.jpg" alt=""></img>
+            <img class="img_Basic" src="./images/0008.jpg" alt="">
         </div>
         <div class="navbar navbar-default navbar-static-bottom">
             <p class="navbar-text pull-left">Clapiel Catalog 4</p>
@@ -124,17 +125,16 @@
   });
 
   /*Scroll Spy*/
-  $('body').scrollspy({ target: '#spy', offset:0 });
+  $('body').scrollspy({ target: '#spy', offset:100 });
 
   /*Smooth link animation*/
   $('a[href*=\\#]:not([href=\\#])').click(function() {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
           if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top
+                scrollTop: target.offset().top -20
             }, 1000);
             return false;
           }

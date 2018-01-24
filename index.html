@@ -80,52 +80,35 @@
           </div>
 
           <div class="page-content inset" data-spy="scroll" data-target="#spy">
-              <div class="col-md-12 well">
-                  <legend id="anch1">
-                  <img class="img_Basic " src="./images/0001.jpg" alt=""></img>
-                  </legend>
+            <div class="col-md-12 well" id="anch1">
+                <img class="img_Basic" src="./images/0001.jpg" alt=""></img>
+            </div>
+            <div class="col-md-12 well" id="anch2">
+                <img class="img_Basic" src="./images/0002.jpg" alt=""></img>
               </div>
-              <div class="col-md-12 well">
-                  <legend id="anch2">
-                  <img class="img_Basic " src="./images/0002.jpg" alt=""></img>
-                  </legend>
+            <div class="col-md-12 well" id="anch3">
+                <img class="img_Basic" src="./images/0003.jpg" alt=""></img>
                 </div>
-              <div class="col-md-12 well">
-                  <legend id="anch3">
-                  <img class="img_Basic " src="./images/0003.jpg" alt=""></img>
-                  </legend>
-                  </div>
-              <div class="col-md-12 well">
-                  <legend id="anch4">
-                  <img class="img_Basic " src="./images/0004.jpg" alt=""></img>
-                  </legend>
-                  </div>
-              <div class="col-md-12 well">
-                  <legend id="anch5">
-                  <img class="img_Basic " src="./images/0005.jpg" alt=""></img>
-                  </legend>
-              </div>
-              <div class="col-md-12 well">
-                  <legend id="anch6">
-                  <img class="img_Basic " src="./images/0006.jpg" alt=""></img>
-                  </legend>
-              </div>
-              <div class="col-md-12 well">
-                  <legend id="anch7">
-                  <img class="img_Basic " src="./images/0007.jpg" alt=""></img>
-                  </legend>
-              </div>
-              <div class="col-md-12 well">
-                  <legend id="anch8">
-                  <img class="img_Basic " src="./images/0008.jpg" alt=""></img>
-                  </legend>
-              </div>
-              <div class="navbar navbar-default navbar-static-bottom">
-                  <p class="navbar-text pull-left">Clapiel Catalog 4</p>
-              </div>
+            <div class="col-md-12 well" id="anch4">
+                <img class="img_Basic" src="./images/0004.jpg" alt=""></img>
+                </div>
+            <div class="col-md-12 well" id="anch5">
+                <img class="img_Basic" src="./images/0005.jpg" alt=""></img>
+            </div>
+            <div class="col-md-12 well" id="anch6">
+                <img class="img_Basic" src="./images/0006.jpg" alt=""></img>
+            </div>
+            <div class="col-md-12 well" id="anch7">
+                <img class="img_Basic" src="./images/0007.jpg" alt=""></img>
+            </div>
+            <div class="col-md-12 well" id="anch8">
+                <img class="img_Basic" src="./images/0008.jpg" alt=""></img>
+            </div>
+            <div class="navbar navbar-default navbar-static-bottom">
+                <p class="navbar-text pull-left">Clapiel Catalog 4</p>
+            </div>
           </div>
         </div>
-    </div>
 <script type="text/javascript">
 	/*Menu-toggle*/
   $("#menu-toggle").click(function(e) {
@@ -141,7 +124,7 @@
   });
 
   /*Scroll Spy*/
-  $('body').scrollspy({ target: '#spy', offset:0 });
+  $('body').scrollspy({ target: '#spy', offset:30 });
 
   /*Smooth link animation*/
   $('a[href*=\\#]:not([href=\\#])').click(function() {
@@ -151,7 +134,7 @@
           target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
           if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top - 50
+                scrollTop: target.offset().top - 20
             }, 1000);
             return false;
           }
